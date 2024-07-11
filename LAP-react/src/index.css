@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*header class*/
+.header {
+  background: #181f7c;
+  padding: 20px;
+  border-bottom: 1px solid;
+  position: relative;
+}
+
+/*image class*/
+.img {
+  height: 74px;
+  width: 250px;
+  margin-top: -54px;
+}
+
+.header p {
+  padding-right: 40px;
+  font-size: 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+  color: white;
+}

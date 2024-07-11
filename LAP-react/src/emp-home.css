@@ -1,0 +1,490 @@
+  /*body class*/
+  .body-data {
+    border-top: 1px solid black;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    height: 92.5vh;
+    background-image: url('./images/background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /*side-nav class*/
+  .side-nav {
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    text-align: center;
+    border-right: 1px solid black;
+    background: linear-gradient(to top, #cfd5d8 0%, #e6e8e9 100%);
+    font-family: "Roboto", sans-serif;
+  }
+
+  .img-1 {
+    margin: 20px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 2px solid black;
+    overflow: hidden;
+    object-fit: cover;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .nav-hr {
+    margin: 10%;
+    width: 80%;
+  }
+
+  .btn {
+    background: transparent;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    color: #161850;
+    text-decoration: none;
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+  }
+
+  .btn::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #161850;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+  }
+
+  .btn:hover::after {
+    width: 100%;
+  }
+
+  /*details class*/
+  .details {
+    padding: 40px;
+  }
+
+  .para {
+    font-size: 20px;
+    font-weight: bold;
+    position: fixed;
+    margin-left: 20%;
+  }
+
+  .lev {
+    padding: 10px;
+    background: #95c4f3;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    position: fixed;
+    margin-left: 35%;
+    border: 1px solid;
+  }
+
+  .leaves {
+    padding: 80px 0;
+    margin-left: 20%;
+  }
+
+  .leaves-list {
+    display: grid;
+    width: 60%;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    grid-gap: 30px;
+    margin-top: 40px;
+  }
+
+  .leaves-list div {
+    background: #f7f3f3;
+    padding: 30px;
+    border-radius: 10px;
+  }
+
+  .leaves-list div h4 {
+    text-align: left;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .leaves-list div p {
+    text-align: left;
+    padding: 10px;
+  }
+
+  .det-hr {
+    margin: 10px;
+    width: 95%;
+  }
+
+  .leaves-list div h5 {
+    text-align: right;
+    margin-top: -15px;
+    font-size: 14px;
+  }
+
+  .logout-container {
+    display: flex;
+    gap: 30px;
+    margin: 30px 50px;
+  }
+
+  .logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 45px;
+    color: #fff;
+    background: #181f7c;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .no-underline {
+    text-decoration: none;
+  }
+
+  /*Leave form*/
+  .text1 {
+    font-size: 30px;
+    color: #181f7c;
+    font-weight: 700;
+  }
+
+  .inputs1 {
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .input1 {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    width: 150px;
+    height: 55px;
+    background: #eaeaea;
+    border-radius: 6px;
+  }
+
+  .input1 select {
+    height: 55px;
+    width: 150px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #363535;
+    font-size: 14px;
+  }
+
+  select option {
+    font-size: 16px;
+  }
+
+  .input2 {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    width: 460px;
+    height: 90px;
+    background: #eaeaea;
+    border-radius: 6px;
+  }
+
+  .input2 textarea {
+    height: 90px;
+    width: 460px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #363535;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .input3 {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    width: 130px;
+    height: 55px;
+    background: #eaeaea;
+    border-radius: 6px;
+  }
+
+  .input3 input {
+    height: 55px;
+    width: 130px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #363535;
+    font-size: 16px;
+    margin-left: 20px;
+  }
+
+  .input4 {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    width: 200px;
+    height: 55px;
+    background: #eaeaea;
+    border-radius: 6px;
+  }
+
+  .input4 select {
+    height: 55px;
+    width: 200px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #363535;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-right: 10px;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .input4 select option {
+    font-size: 18px;
+  }
+
+
+
+
+
+
+
+
+  /*Management*/
+
+  .leave-records {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    padding: 20px;
+    border-collapse: collapse;
+  }
+
+  tbody tr td {
+    padding: 20px;
+    border-bottom: 1px solid;
+  }
+
+  .thead-dark th {
+    background: black;
+    color: white;
+    padding: 20px;
+    border-right: 1px solid white;
+  }
+
+  .pending {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: #161850;
+    text-decoration: underline;
+  }
+
+  .norequest {
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 250px;
+  }
+
+  /*filter btn*/
+  .filter button {
+    padding: 10px;
+    margin-left: 20px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  .filter {
+    margin-left: -650px;
+  }
+
+  .filter button.active {
+    background: #161850;
+    color: white;
+  }
+
+  .filter button:hover {
+    background: #161850;
+    color: white;
+  }
+
+
+  .filter1 button {
+    padding: 10px;
+    margin-left: 20px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  .filter1 {
+    margin-left: -450px;
+  }
+
+  .filter1 button.active {
+    background: #161850;
+    color: white;
+  }
+
+  .filter1 button:hover {
+    background: #161850;
+    color: white;
+  }
+
+  .filter1 input {
+    margin-left: 490px;
+    position: relative;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+  /*pagination*/
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pagination button {
+    padding: 8px 16px;
+    margin: 0 4px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .pagination button:hover {
+    background-color: #ddd;
+  }
+
+  .page-item.active button {
+    background: #161850;
+    color: white;
+  }
+
+  .addNew{
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .addNew:hover{
+    background: #161850;
+    color: white;
+  }
+
+  .userid:hover{
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .file{
+    margin-left: 250px;
+    margin-top: -30px;
+    cursor: pointer;
+  }
+
+.download{
+  padding: 10px;
+  margin-left: 330px;
+  cursor: pointer;
+  margin-top: -40px;
+  position: fixed;
+  border-radius: 5px;
+}
+.download:hover {
+  background: #161850;
+  color: white;
+}
+.download1{
+  padding: 10px;
+  margin-left: 230px;
+  cursor: pointer;
+  margin-top: -35px;
+  position: fixed;
+  border-radius: 5px;
+}
+.download1:hover {
+  background: #161850;
+  color: white;
+}
+
+.view{
+  padding: 5px;
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.leaveRecords{
+  padding: 10px;
+    border-radius: 10px;
+    margin-right: 1300px;
+    width: 150px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.leaveRecords:hover {
+  background: #1e2061;
+    color: white;
+}
+.search{
+  padding: 10px;
+  margin-top: -40px;
+  margin-left: 100px;
+  position: fixed;
+  border: 1px solid;
+}

@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: my-mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - my-network
+    volumes:
+      - mongo-data:/data/db
+
+  springboot-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: leave-app-backend-docker
+    ports:
+      - "8080:8080"
+    networks:
+      - my-network
+    depends_on:
+      - mongodb
+    environment:
+      SPRING_DATA_MONGODB_HOST: mongodb
+      SPRING_DATA_MONGODB_PORT: 27017
+      SPRING_DATA_MONGODB_DATABASE: lap
+      
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+
+  
+
