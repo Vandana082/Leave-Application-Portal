@@ -19,7 +19,7 @@ public interface UserRepo extends MongoRepository<User, String>{
     @Aggregation("{ $match :{ category : 'Management' } }")
     List<UsernameDTO> findUsernamesByCategoryManagement();
 
-    LoginResponse findByUseridAndEmail(String userid, String email);
+    User findByUseridAndEmail(String userid, String email);
 
     void deleteByUserid(String userid);
 

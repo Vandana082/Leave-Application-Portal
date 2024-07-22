@@ -46,7 +46,7 @@ public class ServiceImpl implements Services {
     }
 
     //Factory method to create LoginResponse objects
-    private LoginResponse createLoginResponse(String message, boolean status) {
+    public LoginResponse createLoginResponse(String message, boolean status) {
         return new LoginResponse(message, status);
     }
 
@@ -208,7 +208,7 @@ public class ServiceImpl implements Services {
     }
 
     public LoginResponse forgotPassword(String userid, String email) {
-        LoginResponse user = userRepo.findByUseridAndEmail(userid, email);
+        User user = userRepo.findByUseridAndEmail(userid, email);
         if(user != null){
             return createLoginResponse("userid found", true);
         }
