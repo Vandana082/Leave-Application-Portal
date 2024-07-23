@@ -16,7 +16,7 @@ public class LeaveDTO {
     private String approver;
     private String status;
 
-    public LeaveDTO(String _id, String userid, String username, String leaveType, String startDate, String endDate, int count, String msg, String approver, String status) {
+    public LeaveDTO(String _id, String userid, String username, String leaveType, String startDate, String endDate, int count, String msg, String approver, String status, byte[] bytes) {
         this._id = _id;
         this.userid = userid;
         this.username = username;
