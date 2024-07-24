@@ -5,6 +5,7 @@ import com.example.LeaveApplicationPortal.Entity.Leave;
 import com.example.LeaveApplicationPortal.Repo.LeaveRepo;
 import com.example.LeaveApplicationPortal.Response.LoginResponse;
 import com.example.LeaveApplicationPortal.Service.ServiceIml.ServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
@@ -28,10 +29,11 @@ public class SaveLeaveTest {
     @InjectMocks
     ServiceImpl service;
 
-    //private LeaveDTO leaveDto;
+    private LeaveDTO leaveDto;
+    MultipartFile file = mock(MultipartFile.class);
 
-    /*@BeforeEach
-    void setUp() throws IOException {
+    @BeforeEach
+    void setUp() {
         leaveDto = new LeaveDTO();
         leaveDto.set_id("669f77ed13973306005bd76d");
         leaveDto.setUserid("001");
@@ -43,22 +45,11 @@ public class SaveLeaveTest {
         leaveDto.setMsg("Please approve my leave");
         leaveDto.setApprover("Rohith");
         leaveDto.setStatus("Pending");
-    }*/
+    }
 
     @Test
     public void testFieldsMandatory() {
-        LeaveDTO leaveDto = new LeaveDTO();
-        leaveDto.set_id("669f77ed13973306005bd76d");
-        leaveDto.setUserid("001");
-        leaveDto.setUsername("abc");
         leaveDto.setLeaveType("");
-        leaveDto.setStartDate("23/07/2024");
-        leaveDto.setEndDate("24/07/2024");
-        leaveDto.setCount(2);
-        leaveDto.setMsg("Please approve my leave");
-        leaveDto.setApprover("Rohith");
-        leaveDto.setStatus("Pending");
-        MultipartFile file = mock(MultipartFile.class);
         LoginResponse loginResponse = service.saveLeave(leaveDto, file);
         assertFalse(loginResponse.getStatus());
         assertEquals("All fields are mandatory", loginResponse.getMessage());
@@ -67,21 +58,8 @@ public class SaveLeaveTest {
 
     @Test
     public void testLeaveApplied() throws IOException {
-        LeaveDTO leaveDto = new LeaveDTO();
-        leaveDto.set_id("669f77ed13973306005bd76d");
-        leaveDto.setUserid("001");
-        leaveDto.setUsername("abc");
-        leaveDto.setLeaveType("Earned_Leave");
-        leaveDto.setStartDate("23/07/2024");
-        leaveDto.setEndDate("24/07/2024");
-        leaveDto.setCount(2);
-        leaveDto.setMsg("Please approve my leave");
-        leaveDto.setApprover("Rohith");
-        leaveDto.setStatus("Pending");
-        MultipartFile file = mock(MultipartFile.class);
-
         when(file.isEmpty()).thenReturn(false);
-        when(file.getBytes()).thenReturn(new byte[] {1, 2, 3});
+        when(file.getBytes()).thenReturn(new byte[0]);
         when(leaveRepo.findByUseridAndStatus(leaveDto.getUserid(), "Pending")).thenReturn(Collections.emptyList());
         LoginResponse loginResponse = service.saveLeave(leaveDto, file);
         assertTrue(loginResponse.getStatus());
@@ -97,19 +75,6 @@ public class SaveLeaveTest {
 
     @Test
     public  void testLeaveNotApplied() throws IOException {
-        LeaveDTO leaveDto = new LeaveDTO();
-        leaveDto.set_id("669f77ed13973306005bd76d");
-        leaveDto.setUserid("001");
-        leaveDto.setUsername("abc");
-        leaveDto.setLeaveType("Earned_Leave");
-        leaveDto.setStartDate("23/07/2024");
-        leaveDto.setEndDate("24/07/2024");
-        leaveDto.setCount(2);
-        leaveDto.setMsg("Please approve my leave");
-        leaveDto.setApprover("Rohith");
-        leaveDto.setStatus("Pending");
-        MultipartFile file = mock(MultipartFile.class);
-
         when(file.isEmpty()).thenReturn(false);
         when(file.getBytes()).thenReturn(new byte[0]);
         List<Leave> leaveList = List.of(new Leave());
@@ -122,19 +87,6 @@ public class SaveLeaveTest {
 
     @Test
     public void testError() throws IOException {
-        LeaveDTO leaveDto = new LeaveDTO();
-        leaveDto.set_id("669f77ed13973306005bd76d");
-        leaveDto.setUserid("001");
-        leaveDto.setUsername("abc");
-        leaveDto.setLeaveType("Earned_Leave");
-        leaveDto.setStartDate("23/07/2024");
-        leaveDto.setEndDate("24/07/2024");
-        leaveDto.setCount(2);
-        leaveDto.setMsg("Please approve my leave");
-        leaveDto.setApprover("Rohith");
-        leaveDto.setStatus("Pending");
-        MultipartFile file = mock(MultipartFile.class);
-
         when(file.isEmpty()).thenReturn(false);
         when(file.getBytes()).thenThrow(new IOException());
         LoginResponse loginResponse = service.saveLeave(leaveDto, file);
