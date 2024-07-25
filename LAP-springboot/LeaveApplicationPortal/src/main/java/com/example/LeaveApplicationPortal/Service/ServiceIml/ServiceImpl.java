@@ -283,7 +283,7 @@ public class ServiceImpl implements Services {
 
     //subclasses
     
-    protected Query createUpdateQuery(String userid) {
+    public Query createUpdateQuery(String userid) {
         return new Query(Criteria.where("userid").is(userid)).addCriteria(Criteria.where("status").is("Pending"));
     }
 
