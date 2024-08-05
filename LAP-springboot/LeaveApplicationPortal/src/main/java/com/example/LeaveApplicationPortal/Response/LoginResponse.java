@@ -3,7 +3,7 @@ package com.example.LeaveApplicationPortal.Response;
 public class LoginResponse {
 
     String message;
-    Boolean status;
+    boolean status;
 
     public LoginResponse(String message, Boolean status) {
         this.message = message;

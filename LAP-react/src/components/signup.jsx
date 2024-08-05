@@ -26,7 +26,7 @@ const SignUp = () => {
     userid: '',
     email: '',
     role: '',
-    pwd: ''
+    password: ''
   })
 
 
@@ -41,10 +41,13 @@ const SignUp = () => {
     formData1.append('userid', formData.userid)
     formData1.append('email', formData.email)
     formData1.append('role', formData.role)
-    formData1.append('password', formData.pwd)
+    formData1.append('password', formData.password)
     formData1.append('category', selectedOption)
     try {
-      await axios.post('http://localhost:8080/api/save', formData1)
+      await axios.post('http://localhost:8080/api/save', formData1, {
+        headers: {
+          'Content-Type': 'application/json'
+        }})
       .then((res) => {
         if (res.data.message === "User already exists") {
           alert("User ID already exist")
@@ -53,7 +56,7 @@ const SignUp = () => {
             userid: '',
             email: '',
             role: '',
-            pwd: ''
+            password: ''
           })
           setSelectedOption('')
         }
@@ -67,7 +70,7 @@ const SignUp = () => {
             userid: '',
             email: '',
             role: '',
-            pwd: ''
+            password: ''
           })
           setSelectedOption('')
         }
@@ -79,7 +82,7 @@ const SignUp = () => {
             userid: '',
             email: '',
             role: '',
-            pwd: ''
+            password: ''
           })
           setSelectedOption('')
         }
@@ -142,7 +145,7 @@ const SignUp = () => {
             </div>
             <div className="input">
               <img src={pwdIcon} alt="password" />
-              <input type="password" placeholder='Password' autoComplete="off" name="pwd" value={formData.pwd} onChange={handleChange} required />
+              <input type="password" placeholder='Password' autoComplete="off" name="password" value={formData.password} onChange={handleChange} required />
             </div>
             {errors.pwdgt && <p className='errors'>{errors.pwdgt}</p>}
             {errors.pwdlt && <p className='errors'>{errors.pwdlt}</p>}

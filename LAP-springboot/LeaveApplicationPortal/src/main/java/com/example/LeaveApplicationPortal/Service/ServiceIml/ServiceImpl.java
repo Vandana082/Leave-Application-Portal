@@ -46,7 +46,7 @@ public class ServiceImpl implements Services {
     }
 
     //Factory method to create LoginResponse objects
-    private LoginResponse createLoginResponse(String message, boolean status) {
+    public LoginResponse createLoginResponse(String message, boolean status) {
         return new LoginResponse(message, status);
     }
 
@@ -82,7 +82,7 @@ public class ServiceImpl implements Services {
         final String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
         boolean isValidEmail = pattern.matcher(userDto.getEmail()).matches();
-        if (userDto.getUsername() == null || userDto.getUsername().isEmpty() || userDto.getUserid() == null || userDto.getUserid().isEmpty() || userDto.getEmail() == null || userDto.getEmail().isEmpty() || userDto.getPassword() == null || userDto.getPassword().isEmpty() || userDto.getCategory() == null || userDto.getCategory().isEmpty()) {
+        if (userDto.getUsername() == null || userDto.getUsername().isEmpty() || userDto.getUserid() == null || userDto.getUserid().isEmpty() || userDto.getEmail() == null || userDto.getEmail().isEmpty() || userDto.getRole().isEmpty() || userDto.getRole() == null || userDto.getPassword() == null || userDto.getPassword().isEmpty() || userDto.getCategory() == null || userDto.getCategory().isEmpty()) {
             return createLoginResponse("All fields are mandatory", false);
         }
         User user1 = userRepo.findByUserid(userDto.getUserid());
@@ -208,7 +208,7 @@ public class ServiceImpl implements Services {
     }
 
     public LoginResponse forgotPassword(String userid, String email) {
-        LoginResponse user = userRepo.findByUseridAndEmail(userid, email);
+        User user = userRepo.findByUseridAndEmail(userid, email);
         if(user != null){
             return createLoginResponse("userid found", true);
         }
@@ -283,7 +283,7 @@ public class ServiceImpl implements Services {
 
     //subclasses
     
-    protected Query createUpdateQuery(String userid) {
+    public Query createUpdateQuery(String userid) {
         return new Query(Criteria.where("userid").is(userid)).addCriteria(Criteria.where("status").is("Pending"));
     }
 
