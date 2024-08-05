@@ -10,6 +10,7 @@ import com.example.LeaveApplicationPortal.Entity.User;
 import com.example.LeaveApplicationPortal.Response.LoginResponse;
 import com.example.LeaveApplicationPortal.Service.Services;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -32,13 +33,13 @@ public class UserController {
     //Operations on User details
 
     @PostMapping(value = "/save")
-    public ResponseEntity<?> saveUser(UserDTO userDto) {
+    public ResponseEntity<?> saveUser(@RequestBody UserDTO userDto) {
         LoginResponse loginResponse = services.saveUser(userDto);
         return ResponseEntity.ok(loginResponse);
     }
 
     @PostMapping(value = "/login")
-    public ResponseEntity<?> loginUser(LoginDTO loginDto) {
+    public ResponseEntity<?> loginUser(@RequestBody LoginDTO loginDto) {
         LoginResponse loginResponse = services.loginUser(loginDto);
         return ResponseEntity.ok(loginResponse);
     }
@@ -130,7 +131,6 @@ public class UserController {
     public byte[] getFile(@PathVariable("id")String id) {
         return services.getFile(id);
     }
-
 
     @GetMapping("/editLeave/{userid}")
     public List<Leave> editLeave(@PathVariable("userid")String userid) {

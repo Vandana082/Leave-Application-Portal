@@ -82,7 +82,7 @@ public class ServiceImpl implements Services {
         final String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
         boolean isValidEmail = pattern.matcher(userDto.getEmail()).matches();
-        if (userDto.getUsername() == null || userDto.getUsername().isEmpty() || userDto.getUserid() == null || userDto.getUserid().isEmpty() || userDto.getEmail() == null || userDto.getEmail().isEmpty() || userDto.getPassword() == null || userDto.getPassword().isEmpty() || userDto.getCategory() == null || userDto.getCategory().isEmpty()) {
+        if (userDto.getUsername() == null || userDto.getUsername().isEmpty() || userDto.getUserid() == null || userDto.getUserid().isEmpty() || userDto.getEmail() == null || userDto.getEmail().isEmpty() || userDto.getRole().isEmpty() || userDto.getRole() == null || userDto.getPassword() == null || userDto.getPassword().isEmpty() || userDto.getCategory() == null || userDto.getCategory().isEmpty()) {
             return createLoginResponse("All fields are mandatory", false);
         }
         User user1 = userRepo.findByUserid(userDto.getUserid());

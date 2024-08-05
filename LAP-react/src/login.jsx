@@ -36,7 +36,10 @@ const Login = () => {
     formData.append('userid', loginData.userid)
     formData.append('password', loginData.pwd)
     try {
-      await axios.post('http://localhost:8080/api/login', formData)
+      await axios.post('http://localhost:8080/api/login', formData, {
+        headers: {
+          'Content-Type': 'application/json'
+        }})
       .then((res) => {
         if (res.data.message === "Login as Employee") {
           history('/EmpHome', { state: { id: loginData.userid } })
